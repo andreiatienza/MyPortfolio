@@ -1,0 +1,122 @@
+.footer {
+  background: linear-gradient(
+    180deg,
+    var(--bg-secondary) 0%,
+    color-mix(in srgb, var(--bg-secondary) 70%, #050505) 100%
+  );
+  border-top: 1px solid color-mix(in srgb, var(--text-secondary) 20%, transparent);
+  padding: 2.5rem 0;
+}
+
+.footer-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.footer-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.footer-name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}
+
+.footer-tagline {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.footer-divider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.4), transparent);
+  min-width: 120px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-link {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme='light'] .footer-link {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.footer-link svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.footer-link:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.footer-copy {
+  flex-basis: 100%;
+  text-align: center;
+  margin: 1rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}
+

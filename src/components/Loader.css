@@ -1,0 +1,245 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(10, 10, 10, 0.95) 100%);
+  z-index: 2000;
+  animation: loaderFade 0.8s ease;
+  overflow: hidden;
+}
+
+.loader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 0, 0, 0.12), transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(255, 0, 0, 0.08), transparent 50%);
+  animation: backgroundPulse 4s ease-in-out infinite;
+}
+
+.loader.light {
+  background: linear-gradient(135deg, #fefefe 0%, #f5f5f5 100%);
+}
+
+.loader.light::before {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 0, 0, 0.08), transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(255, 0, 0, 0.05), transparent 50%);
+}
+
+.loader-card {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: slideUpFade 0.8s ease 0.2s both;
+}
+
+.loader-logo-glow {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.25), rgba(255, 0, 0, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: logoFloat 3s ease-in-out infinite;
+  box-shadow: 
+    0 0 50px rgba(255, 0, 0, 0.4),
+    0 0 100px rgba(255, 0, 0, 0.2),
+    inset 0 0 30px rgba(255, 0, 0, 0.1);
+  border: 2px solid rgba(255, 0, 0, 0.2);
+  position: relative;
+}
+
+.loader-logo-glow::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 36px;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.3), transparent);
+  opacity: 0;
+  animation: glowPulse 2s ease-in-out infinite;
+  z-index: -1;
+}
+
+.loader-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 24px;
+  background-color: #fff;
+  padding: 0.7rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: logoScale 2s ease-in-out infinite;
+}
+
+.loader-name {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+  letter-spacing: 0.08em;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: nameGlow 2.5s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+}
+
+.loader-role {
+  margin: 0.75rem 0 2rem;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  font-weight: 500;
+  animation: roleFade 2s ease-in-out infinite;
+}
+
+.loader.light .loader-name {
+  background: linear-gradient(120deg, #1a1a1a 0%, #2a2a2a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+.loader.light .loader-role {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.loader-progress-text {
+  font-size: 1.1rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+.loader.light .loader-progress-text {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.loader-line {
+  width: 200px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0 auto;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 20px rgba(255, 0, 0, 0.3),
+    inset 0 0 10px rgba(255, 0, 0, 0.1);
+  position: relative;
+}
+
+.loader-line::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.2), transparent);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.loader-line span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 1), rgba(255, 0, 0, 0.8));
+  transform-origin: left;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes loaderFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+@keyframes logoScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes nameGlow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes roleFade {
+  0%, 100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes backgroundPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
